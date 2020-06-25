@@ -51,6 +51,7 @@ for(valor of valores){
         total.setAttribute('style','display:flex;')
     }
     valor.addEventListener('input', alterSubtotal)
+    valor.addEventListener('keydown', alterSubtotal)
 }
 confirma.addEventListener('click',(evt)=>{
     valores.forEach((valor)=>{
