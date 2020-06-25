@@ -3,6 +3,10 @@
 h1{
     justify-self: center;
     color: white;
+    padding-top: 100px;
+    font-size: 35px;
+    text-transform: uppercase;
+    letter-spacing: 10;
 }
 
 .content{
@@ -17,7 +21,7 @@ h1{
 
 .content table{
     color: #ffffff91;
-    font-size: 25px;
+    font-size: 30px;
     border: rgba(189, 189, 189, 0.33) solid 6px;
     border-radius: 6px;
 }
@@ -109,5 +113,12 @@ h1{
 }
 
 @media (max-device-width: 800px){
-
+    h1{
+        padding-top: 100px;
+        font-size: 50px;
+    }
+    .content input, .content textarea{
+        font-size: 30px;
+        padding: 40px 10px;
+    }
 }
