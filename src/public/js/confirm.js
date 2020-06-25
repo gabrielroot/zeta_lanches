@@ -87,7 +87,7 @@ wpp_send.addEventListener('click',(el)=>{
         nome_el.focus()
         alert('Diga-me ao menos seu nome e aonde receberá a entrega!')
     }else
-    setTimeout(()=>
-        window.location = window.location.origin
-    ,2)
+        setTimeout(()=>
+            window.location = window.location.origin
+        ,2)
 })
