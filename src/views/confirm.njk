@@ -1,0 +1,34 @@
+{% extends "template/layout.njk" %}
+
+{% block header %}
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/confirm.css">
+{%endblock%}
+
+{% block content %}
+    <h1>Confirme o pedido:</h1>
+    <div class="content">
+            <table>
+                <tr><td>Item</td><td>Quantidade</td></tr>
+                {% for item in data %}
+                    <tr><td class="item_nome">{{item.nome}}</td><td class="item_valor">{{item.quantidade}}</td></tr>
+                {% endfor %}
+                <tr><td>Total</td><td class="total">R$ {{total}}</td></tr>
+            </table>
+        <input type="text" name="nome" placeholder="Seu nome">
+        <input type="text" name="local" placeholder="Local para entrega">
+        <textarea name="obs" placeholder="Observação (Opcional)"></textarea>
+    </div>
+
+
+
+    <p class="label_wpp">Ao enviar, basta "Iniciar conversa" e seu pedido cairá direto no meu WhatsApp!</p>
+    <a target='_blank' class='button wpp_send'>
+        <p>ENVIAR</p>
+        <div class="material-icons">
+            send
+        </div>
+    </a>
+
+    <script src="js/confirm.js"></script>
+{% endblock %}

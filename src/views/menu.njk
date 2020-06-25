@@ -1,0 +1,52 @@
+{% extends "template/layout.njk" %}
+
+{% block header %}
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/menu.css">
+{% endblock %}
+
+{% block content %}
+    <form  method="POST" action="/confirm" style='justify-self:center;'>
+        <div class="content">
+            <div class="text">
+                <p>Por aqui, tudo é feito na hora! A disponibilidade dos produtos irá depender dos ingredientes em estoque</p>
+                <p>Para hoje, temos:</p>
+            </div>
+            <div class="cards">
+                    {% for item in data %}
+                        {% if item.status == true %}
+                            <div id={{loop.index}} class="item">
+                                <img src={{item.imagem}} alt="Hambúrger">
+                                <h3>{{item.nome}}</h3>
+                                <p>{{item.descricao}}</p>
+                                <div class="inline_items">
+                                    <p><small>Preço:</small></p>
+                                    <p class="preco">R$ {{item.preco}}</p>
+                                </div>
+                                <p class="operadores">x</p>
+                                <input class="valor" min=0 step=1 type="number" name='quantidade' placeholder='Quantidade'>
+                                <p class="operadores">=</p>
+                                <div class="inline_items">
+                                    <p><small>Subtotal:</small></p>
+                                    <p>R$ 0,00</p>
+                                </div>
+                                <input type="hidden" name="nome" value="{{item.nome}}">
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+            <button type='submit' class='button confirm'>Informar dados para entrega</button>
+        </div>
+        <input type="hidden" name="total">
+    </form>
+    <div class="total">
+        <p>Total:</P>
+        <P> R$ 0,00</p>
+    </div>
+
+
+    <script src="js/menu.js"></script>
+
+
+{% endblock %}

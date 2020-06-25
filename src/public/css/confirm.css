@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+h1{
+    justify-self: center;
+    color: white;
+}
+
+.content{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    justify-self: center;
+    max-width: 1200px;
+    padding: 10vh 10vw;
+    row-gap: 40px;
+}
+
+.content table{
+    color: #ffffff6b;
+    font-size: 25px;
+    border: rgba(0, 0, 0, 0.205) solid 6px;
+    border-radius: 6px;
+}
+
+.content table tr:nth-child(even){
+    background-color: rgba(0, 0, 0, 0.137);
+}
+
+.content table tr td{
+    width: 80%;
+    padding: 4px 40px;
+}
+
+.content table tr:first-of-type, .content table tr:last-of-type{
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0.404);
+    color: rgba(255, 255, 255, 0.46);
+    width: 100%;
+    text-align: center;
+}
+
+.content input, .content textarea{
+        font-size: 20px;
+        border: none;
+        color: white;
+        padding: 10px;
+        height: 50px;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.33);
+        border-radius: 4px;
+        box-shadow: #4c0000 0px 0px 5px 3px;
+}
+
+.content textarea{
+    height: 100px;
+}
+
+.label_wpp{
+    color: #b6ffb463;
+    font-size: 25px;
+    text-align: center;
+    width: 100%;
+    padding: 30px 18vw;
+    line-height: 30px;
+}
+
+.wpp_send{
+    background-color: #179c2e8f;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20%;
+    padding-right: 20%;
+    width: 70%;
+    max-width: 800px;
+    justify-self: center;
+    align-items: center;
+    white-space: nowrap;
+    margin-bottom: 10vh;
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+
+.wpp_send:hover{
+    color: #b7ffbb;
+    background-color: rgb(5, 115, 20);
+    box-shadow: rgb(5, 115, 20) 0px 0px 8px 4px;
+}
+
+.wpp_send div{
+    margin-left: 40px;
+    align-self: center;
+    font-size: 35px;
+}
+
+@keyframes focus_me{
+    /* Início */
+    from{ 
+        border: 2px solid rgb(22, 187, 16);
+    }
+    
+    /* Fim */
+    to{
+        
+        border: 2px solid rgb(9, 57, 17);
+    }
+}
