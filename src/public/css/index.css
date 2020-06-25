@@ -24,7 +24,7 @@
 .card h1{
     font-size: 30px;
     text-align: center;
-    color: #9595ff;
+    color: #ff9595;
     text-transform: uppercase;
     letter-spacing: 10px;
     text-shadow: #010114 5px 2px 4px;
@@ -58,7 +58,7 @@
 }
 
 .text{
-    background-color: rgba(0, 0, 0, 0.319);
+    background-color: rgba(255, 122, 122, 0.06);
     padding: 40px 20px;
     display: grid;
     row-gap: 50px;

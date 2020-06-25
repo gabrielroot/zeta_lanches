@@ -16,14 +16,17 @@ h1{
 }
 
 .content table{
-    color: #ffffff6b;
+    color: #ffffff91;
     font-size: 25px;
-    border: rgba(0, 0, 0, 0.205) solid 6px;
+    border: rgba(189, 189, 189, 0.33) solid 6px;
     border-radius: 6px;
 }
 
 .content table tr:nth-child(even){
     background-color: rgba(0, 0, 0, 0.137);
+}
+.content table tr td:last-of-type{
+    text-align: center;
 }
 
 .content table tr td{
@@ -33,8 +36,8 @@ h1{
 
 .content table tr:first-of-type, .content table tr:last-of-type{
     font-weight: 700;
-    background-color: rgba(0, 0, 0, 0.404);
-    color: rgba(255, 255, 255, 0.46);
+    background-color: rgba(0, 0, 0, 0.29);
+    color: rgba(255, 255, 255, 0.815);
     width: 100%;
     text-align: center;
 }
@@ -48,7 +51,7 @@ h1{
         width: 100%;
         background-color: rgba(0, 0, 0, 0.33);
         border-radius: 4px;
-        box-shadow: #4c0000 0px 0px 5px 3px;
+        box-shadow: #630202 0px 0px 5px 3px;
 }
 
 .content textarea{
@@ -56,7 +59,7 @@ h1{
 }
 
 .label_wpp{
-    color: #b6ffb463;
+    color: #cdffcbe0;
     font-size: 25px;
     text-align: center;
     width: 100%;
@@ -103,4 +106,8 @@ h1{
         
         border: 2px solid rgb(9, 57, 17);
     }
+}
+
+@media (max-device-width: 800px){
+
 }
