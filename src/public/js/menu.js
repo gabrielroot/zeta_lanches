@@ -15,6 +15,8 @@ function updateTotal(valores_produtos){
     for(val of valores_array)
         if(val>0)
             all+=val
+
+    all = all.toFixed(2)
     document.querySelector('input[name="total"]').value = all
     total.lastElementChild.innerText = ' R$ ' + all
 }
@@ -25,17 +27,15 @@ for(valor of valores){
         const valores_produtos =  document.querySelectorAll('.preco')
         for(valor of valores_produtos){
             array_valores_produtos.push(Number(valor.innerText
-            .slice(3)
-            .replace(',','.')))
+            .slice(3)))
         }
         let subTotal = Number(el.target.previousElementSibling.previousElementSibling.lastElementChild.innerText
-        .slice(3)
-        .replace(',','.'))
-        
+        .slice(3))
+
         el.target.value = el.target.value.replace(/\D/g,'')
  
         const valor_inpt = el.target.value
-        subTotal *= valor_inpt.toLocaleString('pt-BR')
+        subTotal = Number(subTotal*valor_inpt).toFixed(2)
         
         if(subTotal<0){
             subTotal=0
@@ -46,7 +46,6 @@ for(valor of valores){
         
         //MUDA TOTAL
         updateTotal(array_valores_produtos)
-
         //MOSTRA TOTAL
         total.setAttribute('style','display:flex;')
     }

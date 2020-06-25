@@ -3,7 +3,7 @@
         "id": "0",
         "nome": "Hambúrguer",
         "imagem": "images/burger.jpg",
-        "preco": "4,10",
+        "preco": "4.10",
         "descricao": "Alface, mussarela, tomate, blá, blá, blá",
         "status": true
     },
@@ -11,7 +11,7 @@
         "id": "0",
         "nome": "Hambúrguer",
         "imagem": "images/burger.jpg",
-        "preco": "4,00",
+        "preco": "4.00",
         "descricao": "Alface, mussarela, tomate, blá, blá, blá",
         "status": true
     },
@@ -19,7 +19,7 @@
         "id": "1",
         "nome": "Cachorro - Quente",
         "imagem": "images/profile.jpg",
-        "preco": "3,00",
+        "preco": "3.00",
         "descricao": "Deseemforejniunriuniru",
         "status": true
     },
@@ -27,7 +27,7 @@
         "id": "2",
         "nome": "Copo de Coxinha",
         "imagem": "images/profile.jpg",
-        "preco": "2,00",
+        "preco": "2.00",
         "descricao": "Deseemforejniunriuniru",
         "status": true
     },
@@ -35,7 +35,7 @@
         "id": "3",
         "nome": "Refrigerante 2L",
         "imagem": "images/profile.jpg",
-        "preco": "6,00",
+        "preco": "6.00",
         "descricao": "Deseemforejniunriuniru",
         "status": true
     }

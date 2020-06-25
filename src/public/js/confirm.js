@@ -19,7 +19,6 @@ var isMobile = {
     }
 };
 
-const br = '%0D'
 const numero = '38998988064'
 const wpp_send = document.querySelector('.wpp_send')
 
@@ -41,7 +40,7 @@ console.log(item_nomes)
 console.log(item_valores)
 let items = ''
 for(let i=0; i<item_nomes.length; i++)
-    items += `▪️ _${item_valores[i]} ${item_nomes[i]};_${br}`
+    items += `  ▪️ _${item_valores[i]} ${item_nomes[i]};_\n`
 
 function atualizaWppSend(){
     let url = ''
@@ -50,7 +49,18 @@ function atualizaWppSend(){
     else
         url = 'https://web.whatsapp.com/send?phone=+55'+numero+'&text='
 
-    let message = `Olá dona Elizete!${br}Meu nome é ${nome}!${br}Gostaria que me preparasse esses itens:${br}${br}${items}${br}🛵 E que me entregasse aqui: *${local}*${br}${obs}${br}Deu um total de R$ ${total}`
+    let message = window.encodeURIComponent(`Olá dona Elizete!
+Meu nome é *${nome}*!
+Gostaria que me preparasse esses itens:
+
+${items}
+
+🛵 E que me entregasse aqui:
+*${local}.*
+
+${obs}
+
+Deu um total de R$ ${total}`)
 
     wpp_send.setAttribute('href', url + message)
 }

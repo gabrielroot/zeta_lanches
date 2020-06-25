@@ -70,11 +70,12 @@ body .inline_buttons{
 .item h3{
     color: rgba(255, 255, 255, 0.911);
     line-height: 80px;
+    white-space: nowrap;
     font-size: 25px;
     padding: 0 35px;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 15px;
+    letter-spacing: 7px;
 }
 
 .item p{
@@ -173,6 +174,8 @@ body .inline_buttons{
 
     .item h3{
         font-size: 50px;
+        letter-spacing: 15px;
+        line-height: 150px;
     }
 
     .item img{
