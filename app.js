@@ -12,7 +12,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.static('./src/public'))
 app.use(routes)
 
-app.listen(8000,()=>console.log('App is running...'))
+app.listen(process.env.PORT || 8000,()=>console.log('App is running...'))
 
 
 // MOBILE == https://api.whatsapp.com/send?phone=5538998988064&text=kkkkkkkk
