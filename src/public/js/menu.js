@@ -6,7 +6,7 @@ let valores_array = new Array(valores.length)
 
 function updateTotal(valores_produtos){
     valores.forEach((valor,i)=>{
-        if(valor.value)
+        if(valor.value>=0)
             valores_array[i]=Number(valor.value)*Number(valores_produtos[i])
     })
 
@@ -31,6 +31,8 @@ for(valor of valores){
         let subTotal = Number(el.target.previousElementSibling.previousElementSibling.lastElementChild.innerText
         .slice(3)
         .replace(',','.'))
+        
+        el.target.value = el.target.value.replace(/\D/g,'')
  
         const valor_inpt = el.target.value
         subTotal *= valor_inpt.toLocaleString('pt-BR')
@@ -39,19 +41,17 @@ for(valor of valores){
             subTotal=0
         }
 
-        el.target.value = el.target.value.replace(/\D/g,'')
         
         el.target.nextElementSibling.nextElementSibling.lastElementChild.innerText = 'R$ ' +subTotal
         
-
         //MUDA TOTAL
         updateTotal(array_valores_produtos)
 
         //MOSTRA TOTAL
         total.setAttribute('style','display:flex;')
     }
+
     valor.addEventListener('input', alterSubtotal)
-    valor.addEventListener('keydown', alterSubtotal)
 }
 confirma.addEventListener('click',(evt)=>{
     valores.forEach((valor)=>{

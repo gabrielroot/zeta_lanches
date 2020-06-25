@@ -3,6 +3,14 @@
         "id": "0",
         "nome": "Hambúrguer",
         "imagem": "images/burger.jpg",
+        "preco": "4,10",
+        "descricao": "Alface, mussarela, tomate, blá, blá, blá",
+        "status": true
+    },
+    {
+        "id": "0",
+        "nome": "Hambúrguer",
+        "imagem": "images/burger.jpg",
         "preco": "4,00",
         "descricao": "Alface, mussarela, tomate, blá, blá, blá",
         "status": true
