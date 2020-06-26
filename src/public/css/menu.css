@@ -105,7 +105,7 @@ body .inline_buttons{
     box-shadow: #8b0101 0px 0px 5px 3px;
 
     
-    /* animation-name: focus_me; */
+    animation-name: focus_me;
     animation-duration: 2000ms;
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
@@ -149,7 +149,7 @@ body .inline_buttons{
 .subToTop{
     position:fixed;
     display: none;
-    z-index: 3;
+    z-index: 1;
     color: black;
     font-size: 10vh;
     background-color: #008100;
@@ -162,7 +162,7 @@ body .inline_buttons{
     animation-name: toTop;
     animation-play-state: paused;
     animation-duration: 1000ms;
-    animation-timing-function: ease-in-out;
+    animation-timing-function: cubic-bezier(0.05, 1.16, 1, 0.21);
     animation-fill-mode: forwards;
     /* animation-iteration-count: infinite; */
 }
@@ -251,7 +251,7 @@ body .inline_buttons{
     align-items: center;
     color: #15e11a;
     font-weight: 700;
-    background-color: #0c29028f;
+    background-color: #061401e3;
     box-shadow: #34b20991 1px 1px 20px;
     justify-content: center;
     justify-self: center;

@@ -43,7 +43,6 @@ for(valor of valores){
 
         const subTotal_hidden = el.target.nextElementSibling.nextElementSibling.lastElementChild.previousElementSibling
         subTotal_hidden.setAttribute('style','display:flex; animation-play-state: running')
-        console.log(subTotal_hidden)
 
         el.target.nextElementSibling.nextElementSibling.lastElementChild.innerText = 'R$ ' +subTotal
         

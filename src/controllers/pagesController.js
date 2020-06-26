@@ -1,19 +1,12 @@
 const fs = require('fs')
-
+const menuModel = require('../models/menuModel')
 module.exports = {
     async index(req, res){
         return res.render('index')
     },
     async menu(req, res){
-        let data = {}
-        fs.readFile('src/data/menu.json','utf8',(err,obj)=>{
-            if(err){
-                console.error(err)
-                res.send('Erro ao carregar cardápio')
-            }
-            data = JSON.parse(obj)
-            return res.render('menu',{data})
-        })
+        const data = await menuModel.read()
+        return res.render('menu',{data})
     },
     async post(req, res){
         let data = []
@@ -29,5 +22,20 @@ module.exports = {
         const total = req.body.total
 
         return res.render('confirm',{data,total})
+    },
+
+    async hoje(req, res){
+        const data = await menuModel.read()
+        return res.render('hoje',{data})
+    },
+
+    async available(req, res){
+        let data = await menuModel.read()
+        data = await menuModel.update(data,req.body)
+        
+        if(data)
+            console.log('Cardápio atualizado!!')
+
+        return res.render('menu',{data})
     }
 }

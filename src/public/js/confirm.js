@@ -36,8 +36,6 @@ let item_valores = []
 document.querySelectorAll('.item_nome').forEach((el)=>item_nomes.push(el.innerText))
 document.querySelectorAll('.item_valor').forEach((el)=>item_valores.push(el.innerText))
 
-console.log(item_nomes)
-console.log(item_valores)
 let items = ''
 for(let i=0; i<item_nomes.length; i++)
     items += `  ▪️ _${item_valores[i]} ${item_nomes[i]};_\n`

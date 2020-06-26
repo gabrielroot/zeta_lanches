@@ -1,0 +1,50 @@
+{% extends "template/layout.njk" %}
+
+{% block header %}
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/hoje.css">
+{% endblock %}
+
+{% block content %}
+    <form  method="POST" action="/available" style='justify-self:center;'>
+        <div class="content">
+            <div class="text">
+                <p>O que teremos para hoje?</p>
+            </div>
+            <div class="cards">
+                    {% for item in data %}
+                            <div id={{loop.index}} class="item">
+                                <img src={{item.imagem}} alt="Hambúrger">
+                                <h3>{{item.nome}}</h3>
+                                <p>{{item.descricao}}</p>
+                                <div class="inline_items">
+                                    <p><small>Preço:</small></p>
+                                    <p class="preco">R$ {{item.preco}}</p>
+                                </div>
+                                <div class="inline_items">
+                                    <p><small>Disponível?</small></p>
+                                    <p class="sim">Sim</p>
+                                    {% if item.status %}
+                                        <input type="radio" class="valor" name={{item.id}} value=1 checked/>
+                                        <p class="nao">Não</p>
+                                        <input type="radio" class="valor" name={{item.id}} value=0 />
+                                    {% else %}
+                                        <input type="radio" class="valor" name={{item.id}} value=1 />
+                                        <p class="nao">Não</p>
+                                        <input type="radio" class="valor" name={{item.id}} value=0 checked/>
+                                    {% endif %}                                    
+                                </div>
+                            </div>
+                    {% endfor %}
+
+                </div>
+            <button type='submit' class='button confirm'>Atualizar cardápio</button>
+        </div>
+    </form>
+    <div class="total">
+        <p>Total:</P>
+        <P> R$ 0,00</p>
+    </div>
+    <script src="js/hoje.js"></script>
+{% endblock %}
