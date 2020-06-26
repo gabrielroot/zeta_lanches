@@ -87,8 +87,10 @@ body .inline_buttons{
     font-size: 20px;
 }
 
-.item .description{
-    display: none;
+.item .descricao{
+    font-size: 21px;
+    padding: 40px;
+    text-align: justify;
 }
 
 .item input{

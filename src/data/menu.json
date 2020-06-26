@@ -1,1 +1,42 @@
-[{"id":"0","nome":"Hambúrguer","imagem":"images/burger.jpg","preco":"4.00","descricao":"Alface, mussarela, tomate, blá, blá, blá","status":true},{"id":"1","nome":"Cachorro - Quente","imagem":"images/profile.jpg","preco":"3.00","descricao":"Deseemforejniunriuniru","status":true},{"id":"2","nome":"Copo de Coxinha","imagem":"images/profile.jpg","preco":"2.00","descricao":"Deseemforejniunriuniru","status":true},{"id":"3","nome":"Refrigerante 2L","imagem":"images/profile.jpg","preco":"6.00","descricao":"Deseemforejniunriuniru","status":true},{"id":"4","nome":"Hambúrguer","imagem":"images/burger.jpg","preco":"4.10","descricao":"Alface, mussarela, tomate, blá, blá, blá","status":false}]
+[
+    {
+        "id": "0",
+        "nome": "Hambúrguer",
+        "imagem": "images/burguer.jpg",
+        "preco": "4.00",
+        "descricao": "[Descrição do produto] Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI",
+        "status": true
+    },
+    {
+        "id": "1",
+        "nome": "Cachorro - Quente",
+        "imagem": "images/burguer.jpg",
+        "preco": "3.00",
+        "descricao": "[Descrição do produto] Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI",
+        "status": true
+    },
+    {
+        "id": "2",
+        "nome": "Copo de Coxinha",
+        "imagem": "images/burguer.jpg",
+        "preco": "2.00",
+        "descricao": "[Descrição do produto] Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI",
+        "status": true
+    },
+    {
+        "id": "3",
+        "nome": "Refrigerante 2L",
+        "imagem": "images/burguer.jpg",
+        "preco": "6.00",
+        "descricao": "[Descrição do produto] Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI",
+        "status": true
+    },
+    {
+        "id": "4",
+        "nome": "Hambúrguer",
+        "imagem": "images/burguer.jpg",
+        "preco": "4.10",
+        "descricao": "[Descrição do produto] Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI",
+        "status": false
+    }
+]
