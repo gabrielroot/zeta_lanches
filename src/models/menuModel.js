@@ -17,7 +17,6 @@ module.exports = {
         return new Promise(function(resolve,reject){
             for(let i = 0; i<data.length; i++){
                 data[i].status = body[i]=='1'?true:false
-                console.log('data.status: '+data[i].status+' | body: '+body[i])
             }
             data = JSON.stringify(data)
             fs.writeFile('src/data/menu.json',data,'utf8',(err)=>{
