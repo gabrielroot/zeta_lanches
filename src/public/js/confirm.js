@@ -54,13 +54,10 @@ Meu nome é *${nome}*!
 Gostaria que me preparasse esses itens:
 
 ${items}
-
 🛵 E que me entregasse aqui:
 *${local}.*
-
 ${obs}
-
-Deu um total de R$ ${total}`)
+Deu um total de *R$ ${total}*`)
 
     wpp_send.setAttribute('href', url + message)
 }
@@ -77,7 +74,7 @@ local_el.addEventListener('input',(el)=>{
 })
 
 obs_el.addEventListener('input',(el)=>{
-    obs = '('+el.target.value+')'
+    obs = '\n('+el.target.value+')\n'
     atualizaWppSend()
 })
 

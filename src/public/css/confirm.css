@@ -22,7 +22,7 @@ h1{
 .content table{
     color: #ffffff91;
     font-size: 30px;
-    border: rgba(189, 189, 189, 0.33) solid 6px;
+    border: rgba(157, 0, 0, 0.33) solid 2px;
     border-radius: 6px;
 }
 
@@ -55,11 +55,11 @@ h1{
         width: 100%;
         background-color: rgba(0, 0, 0, 0.33);
         border-radius: 4px;
-        box-shadow: #630202 0px 0px 5px 3px;
+        box-shadow: #630202 0px 0px 14px 0px;
 }
 
 .content textarea{
-    height: 100px;
+    min-height: 130px;
 }
 
 .label_wpp{
@@ -82,9 +82,9 @@ h1{
     justify-self: center;
     align-items: center;
     white-space: nowrap;
-    margin-bottom: 10vh;
     font-weight: 700;
     letter-spacing: 5px;
+    border-radius: 82px;
 }
 
 .wpp_send:hover{
