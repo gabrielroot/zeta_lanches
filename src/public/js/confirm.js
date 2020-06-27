@@ -19,7 +19,7 @@ var isMobile = {
     }
 };
 
-const numero = '38998988064'
+const numero = '38991434956'
 const wpp_send = document.querySelector('.wpp_send')
 
 const nome_el = document.querySelector('input[name="nome"]')
