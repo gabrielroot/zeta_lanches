@@ -1,2 +1,2 @@
 # zeta_lanches
-Website para recepção de pedidos delivery em uma comunidade de pequeno porte
+Website para recepção de pedidos delivery em uma comunidade rural de pequeno porte
