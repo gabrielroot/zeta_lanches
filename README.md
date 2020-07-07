@@ -16,6 +16,7 @@ O cliente agora toma consciência do custo total do seu pedido antes mesmo de en
 - Visual agradável.
 
 ## Tecnologias
+- Base (HTML, CSS, JS);
 - Nodejs;
 - Nunjucks;
 - API de envio de mensagens do WhatsApp;
