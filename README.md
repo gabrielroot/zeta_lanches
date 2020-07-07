@@ -26,6 +26,7 @@ O cliente agora toma consciência do custo total do seu pedido antes mesmo de en
 A engenharia de software define que todo software computacional possui um ciclo de vida, indo desde a especificação de requisitos à manutenção.
 Steve Jobs afirma que "As pessoas não sabem o que querem, até mostrarmos a elas". Assim, tenho em mente para a evolução deste projeto o desenvolvimento de:
 - Área logada para usuários específicos;
+- Painel realtime de pedidos;
 - Painel indicador de vendas;
 - Push Notifications (Para alertas de fins de semana, indicando o início do atendimento);
 - Implementação em ReactJS;
