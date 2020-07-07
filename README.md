@@ -18,7 +18,7 @@ O cliente agora toma consciência do custo total do seu pedido antes mesmo de en
 ## Tecnologias
 - Base (HTML, CSS, JS);
 - Nodejs;
-- Nunjucks;
+- Nunjucks (Template engine);
 - API de envio de mensagens do WhatsApp;
 - Deploy -> Heroku.
 
