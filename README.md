@@ -5,7 +5,7 @@ __Um website para recepção de pedidos delivery em uma comunidade rural de pequ
 Padronizar o envio de pedidos de forma a identificar rapidamente o que está sendo solicitado.
 
 ## Problematização
-A cada novo cliente que surgia nas noites que geralmente eram muito agitadas, demandava um certo tempo e processamento mental à equipe da culinária para informar ao solicitante, os itens disponíveis, o custo total do seu pedido e ainda, requisitar informações o suficiente parta a entrega.
+A cada novo cliente que surgia nas noites que geralmente eram muito agitadas, demandava um certo tempo e processamento mental à equipe da culinária para informar ao solicitante, os itens disponíveis, o custo total do seu pedido e ainda, requisitar informações o suficiente para a entrega.
 
 ## Resultados
 O cliente agora toma consciência do custo total do seu pedido antes mesmo de entrar em contato com a Elizete. (Bônus: Ele acaba por querer pedir mais itens, até atingir uma determinada quantia).
