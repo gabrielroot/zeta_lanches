@@ -45,7 +45,7 @@ function atualizaWppSend(){
     if(isMobile.any())
         url = 'https://api.whatsapp.com/send?phone=+55'+numero+'&text='
     else
-        url = 'https://web.whatsapp.com/send?phone=+55'+numero+'&text='
+        url = 'https://wa.me/55'+numero+'?text='
 
     let message = window.encodeURIComponent(`Olá dona Elizete!
 Meu nome é *${nome}*!
