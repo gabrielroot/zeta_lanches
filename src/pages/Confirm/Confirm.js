@@ -102,7 +102,7 @@ Deu um total de *${FormatNumber.toREAL(total)}*
             e.preventDefault()
         }
         else
-            window.location = sendWpp()
+            window.open(sendWpp(),'_blank')
         // console.log(itens,total)
     }
 
