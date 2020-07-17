@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+.content{
+    display: grid;
+    padding: 20px 0;
+    max-width: 1000px;
+    justify-self: center;
+}
+
+body .inline_buttons{
+    display: flex;
+    width: 60%;
+    padding: 10px;
+    align-self: center;
+    justify-content: center;
+}
+
+.span_input{
+    display:none;
+}
+
+
+
+
+
+.text{
+    color: white;
+}
+
+.text p{
+    font-size: 30px;
+    text-align: center;
+    font-weight: 100;
+}
+
+.text p:last-of-type{
+    font-weight: 900;
+    line-height: 200px;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    text-shadow: black 4px 4px 6px;
+}
+
+.cards{
+    position: relative;
+    display: grid;
+    justify-self: center;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    width: 100%;
+    gap: 30px;
+}
+
+.item{
+    position: relative;
+    display: grid;
+    justify-self: center;
+    grid-template-columns: 1fr;
+    background-color: #330000;
+    justify-items: center;
+    max-width: 500px;
+    box-shadow: black 1px 1px 20px 0;
+    padding-bottom: 20px;
+}
+
+.item img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.item h3{
+    color: rgba(255, 255, 255, 0.911);
+    line-height: 80px;
+    white-space: nowrap;
+    font-size: 25px;
+    padding: 0 35px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+}
+
+.item p{
+    padding: 15px 20px;
+    color: rgba(255, 255, 255, 0.73);
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.item .descricao{
+    font-size: 21px;
+    padding: 40px;
+    text-align: justify;
+}
+
+.item input{
+    text-align: center;
+    font-size: 30px;
+    border: none;
+    color: white;
+    padding: 10px;
+    height: 70px;
+    width: 50%;
+    max-width: 650px;
+    background-color: rgba(0, 0, 0, 0.33);
+    border-radius: 4px;
+    box-shadow: #8b0101 0px 0px 5px 3px;
+
+    
+    animation-name: focus_me;
+    animation-duration: 2000ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+.button:hover{
+    color: #ffb7b7;
+    background-color: rgb(115, 5, 5);
+    box-shadow: rgb(115, 5, 5) 0px 0px 8px 4px;
+}
+
+@keyframes focus_me{
+    /* Início */
+    from{ 
+        border: 3px solid rgba(255, 158, 182, 0.493);
+    }
+    
+    /* Fim */
+    to{
+        
+        border: 3px solid rgb(57, 9, 9);
+    }
+}
+
+
+.item .inline_items{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    padding-left: 20px;
+    width: 50%;
+}
+
+.inline_items p:first-of-type{
+    align-self: center;
+    padding: 0;
+}
+
+.subToTop{
+    position:fixed;
+    display: none;
+    z-index: 1;
+    color: black;
+    font-size: 10vh;
+    background-color: #008100;
+    box-shadow: #00c117 0px 0px 9px 2px;
+    padding: 5px 10px;
+    align-self: center;
+    border-radius: 4px;
+
+    animation: none;
+    animation-name: toTop;
+    animation-play-state: paused;
+    animation-duration: 1000ms;
+    animation-timing-function: cubic-bezier(0.05, 1.16, 1, 0.21);
+    animation-fill-mode: forwards;
+    /* animation-iteration-count: infinite; */
+}
+
+
+@keyframes toTop{
+    /* Início */
+    from{
+        top: 100%;
+    }
+    
+    /* Fim */
+    to{
+        top: -50%;
+    }
+}
+
+.inline_items p:last-of-type{
+    background-color: #c4000042;
+    padding: 5px 10px;
+    align-self: center;
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.596);
+    white-space: nowrap;
+}
+
+.item .operadores{
+    font-size: 25px;
+}
+
+@media (max-device-width: 800px){
+    .cards{
+        grid-template-columns: 1fr;
+        row-gap: 80px;
+    }
+    .text p{
+        font-size: 30px;
+    }
+    .text p:first-of-type{
+        font-size: 30px;
+    }
+    .item{
+        min-width: 90vw;
+        min-height: 70vh;
+    }
+
+    .item h3{
+        font-size: 50px;
+        letter-spacing: 15px;
+        line-height: 150px;
+    }
+
+    .item img{
+        height: 500px;
+    }
+    .item p{
+        align-self: end;
+        font-size: 40px;
+    }
+    .item input{
+        font-size: 50px;
+        padding: 10px;
+        height: 140px;
+        width: 60%;
+    }
+    .item .operadores{
+        font-size: 40px;
+    }
+
+    .total{
+        font-size: 50px;
+    }
+
+    .confirm{
+        font-size: 40px;
+        height: 150px;
+    }
+}
+
+.total{
+    display: none;
+    position: fixed;
+    font-size: 30px;
+    width: 100%;
+    height: 6vh;
+    align-items: center;
+    color: #15e11a;
+    font-weight: 700;
+    background-color: #061401e3;
+    box-shadow: #34b20991 1px 1px 20px;
+    justify-content: center;
+    justify-self: center;
+}
+
+.total p:first-child{
+    margin-right: 20px;
+}
+
+.confirm{
+    margin-top: 100px;
+    background-color: #150101;
+    align-self: center;
+    width: 80%;
+    justify-self: center;
+}

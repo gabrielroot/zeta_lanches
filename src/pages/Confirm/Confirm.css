@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+h1{
+    justify-self: center;
+    color: rgb(199, 199, 199);
+    padding-top: 50px;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
+
+input:focus{
+    box-shadow: #d50101 0px 0px 5px 3px;
+}
+
+.conteudo{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    justify-self: center;
+    justify-items: center;
+    max-width: 1200px;
+    padding: 10vh 10vw;
+    row-gap: 30px;
+}
+
+.conteudo table{
+    color: #ffffff91;
+    width: 80%;
+    font-size: 20px;
+    border: rgba(157, 0, 0, 0.33) solid 2px;
+    border-radius: 6px;
+}
+
+.conteudo table tr:nth-child(even){
+    background-color: rgba(0, 0, 0, 0.137);
+}
+.conteudo table tr td:last-of-type{
+    text-align: center;
+}
+
+.conteudo table tr td{
+    width: 50%;
+    padding: 4px 40px;
+}
+
+.item_nome, .item_valor{
+    font-weight: normal;
+    color: grey;
+}
+
+.conteudo table thead tr, .conteudo table tfoot tr{
+    font-weight: 700;
+    background-color: rgba(0, 0, 0, 0.29);
+    color: rgba(255, 255, 255, 0.575);
+    width: 100%;
+    text-align: center;
+}
+
+.inpt_confirm{
+        font-size: 15px;
+        border: none;
+        color: white;
+        padding: 10px;
+        height: 40px;
+        justify-self: center;
+        width: 80%;
+        background-color: rgba(0, 0, 0, 0.33);
+        border-radius: 4px;
+        box-shadow: #630202 0px 0px 14px 0px;
+        animation-name: focus_confirm;
+}
+
+.conteudo textarea{
+    min-height: 150px;
+}
+
+.conteudo .troco{
+    display: flex;
+}
+
+.troco p:first-of-type{
+    font-size: 20px;
+    color: rgb(167, 167, 167);
+    background-color: rgba(10, 10, 12, 0);
+    cursor: initial;
+}
+
+.troco p{
+    font-size: 15px;
+    background-color: rgba(138, 22, 22, 0.568);
+    color: #c5b7b7;
+    justify-self: left;
+    align-self: baseline;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.focused{
+    background-color: rgba(167, 11, 11, 0.781) !important;
+    box-shadow: red 0px 0px 6px 3px;
+
+    transition: all 200ms;
+}
+
+.trocoFor{
+    padding: 20px;
+    background-color: #520c0c;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    color: white;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.trocoFor input{
+    text-align: center;
+    font-size: 20px;
+    border: none;
+    color: white;
+    padding: 10px;
+    height: 40px;
+    width: 90px;
+    background-color: rgba(0, 0, 0, 0.33);
+    border-radius: 4px;
+    box-shadow: #d50101 0px 0px 5px 3px;
+}
+
+.label_wpp{
+    color: #cdffcbe0;
+    font-size: 15px;
+    text-align: center;
+    width: 100%;
+    padding: 30px 18vw;
+    line-height: 30px;
+}
+
+.wpp_send{
+    background-color: #179c2e8f;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 20px;
+    width: 70%;
+    max-width: 600px;
+    justify-self: center;
+    align-items: center;
+    text-decoration: none;
+    white-space: nowrap;
+    font-weight: 700;
+    letter-spacing: 5px;
+    border-radius: 82px;
+    color: #b7ffbb;
+    cursor: pointer;
+    animation-name: focus_confirm;
+    animation-duration: 1400ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+
+    transition: all 200ms;
+}
+
+.wpp_send:hover{
+    color: black;
+    background-color: rgb(5, 115, 20);
+    box-shadow: rgb(5, 115, 20) 0px 0px 8px 4px;
+}
+
+.wpp_send div{
+    margin-left: 40px;
+    align-self: center;
+    font-size: 35px;
+}
+
+@keyframes  focus_confirm{
+    /* Início */
+    from{ 
+        border: 4px solid rgb(17, 117, 14);
+    }
+    
+    /* Fim */
+    to{
+        
+        border: 4px solid rgb(9, 57, 17);
+    }
+}
+
+@media (max-device-width: 800px){
+    h1{
+        padding: 40px 0;
+        font-size: 15px;
+        letter-spacing: 7px;
+    }
+
+    .conteudo table{
+        color: #ffffff91;
+        font-size: 12px;
+        width: 90%;
+        border: rgba(157, 0, 0, 0.33) solid 2px;
+        border-radius: 6px;
+    }
+
+    .conteudo table thead tr, .conteudo table tfoot tr{
+        width: 50%;
+    }
+
+    .conteudo table tr td{
+        width: 50%;
+        padding: 4px 10px;
+    }
+    
+    .item_nome, .item_valor{
+        font-size: 10px;
+    }
+
+    .conteudo{
+        padding: 20px;
+    }
+
+    .conteudo input, .conteudo textarea{
+        font-size: 14px;
+        padding: 8px 10px;
+        width: 100%;
+    }
+
+    .conteudo textarea{
+        min-height: 100px;
+    }
+
+    .troco p:first-of-type, .troco p{
+        font-size: 12px;
+    }
+
+    .trocoFor{
+        font-size: 12px;
+        padding: 15px;
+        width: 80%;
+    }
+
+    .trocoFor input{
+        height: 40px;
+        width: 50px;
+    }
+    
+    @keyframes  focus_confirm{
+        /* Início */
+        from{ 
+            border: 2px solid rgb(17, 117, 14);
+        }
+        
+        /* Fim */
+        to{
+            
+            border: 2px solid rgb(9, 57, 17);
+        }
+    }
+
+    .wpp_send div, .wpp_send p{
+        font-size: 14px;
+    }
+    .label_wpp{
+        font-size: 9px;
+        line-height: 10px;
+    }
+}
