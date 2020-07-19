@@ -20,7 +20,7 @@
         "nome": "Hambúrguer",
         "imagem": "images/burguer.png",
         "preco": "5.00",
-        "descricao": "1 hambúrguer bovino, queijo, alface, tomate, batata palha e milho verde",
+        "descricao": "1 hambúrguer de frango, queijo, alface, tomate, batata palha e milho verde",
         "status": true
     },
     {
