@@ -1,0 +1,44 @@
+[
+    {
+        "id": "10",
+        "nome": "Mini Coxinhas",
+        "imagem": "images/coxinha.png",
+        "preco": "2.00",
+        "descricao": "Um copo com 7 mini coxinhas de frango",
+        "status": true
+    },
+    {
+        "id": "112",
+        "nome": "Cachorro - Quente",
+        "imagem": "images/hotDog.png",
+        "preco": "3.00",
+        "descricao": "Molho, 1 salsicha, milho verde, purê de batata e batata palha",
+        "status": true
+    },
+    {
+        "id": "23",
+        "nome": "Hambúrguer",
+        "imagem": "images/burguer.png",
+        "preco": "5.00",
+        "descricao": "1 hambúrguer bovino, queijo, alface, tomate, batata palha e milho verde",
+        "status": true
+    },
+    {
+        "id": "33",
+        "nome": "Refrigerante",
+        "imagem": "images/soda.png",
+        "preco": "6.00",
+        "descricao": "Refrigerante 2L",
+        "sabor": ["Uva","Laranja", "Guaraná","Pera", "Manga","Uva"],
+        "status": true
+    },
+    {
+        "id": "41",
+        "nome": "Suco",
+        "imagem": "images/juice.png",
+        "preco": "2.50",
+        "descricao": "300ML de suco natural",
+        "sabor": ["Maracujá","Goiaba", "Tamarindo"],
+        "status": true
+    }
+]

@@ -1,0 +1,24 @@
+[
+    {
+        "id": 0,
+        "nome": "",
+        "local": "",
+        "obs": "",
+        "dataHora": "",
+        "total": 0,
+        "troco": 0,
+        "itens":[
+            {
+                "id": 0,
+                "qtde": 0,
+                "sabor":[
+                    {
+                        "id":0,
+                        "nome": "",
+                        "qtde":0
+                    }
+                ]
+            }
+        ]
+    }
+]

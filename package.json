@@ -1,0 +1,21 @@
+{
+  "name": "z-lanches",
+  "version": "1.0.0",
+  "description": "Receptor de pedidos para delivery",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gabrielroot",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^2.2.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {
+    "@prisma/cli": "^2.2.2"
+  }
+}
