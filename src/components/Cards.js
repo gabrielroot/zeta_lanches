@@ -11,8 +11,8 @@ const Cards = (props)=>{
 
     useEffect(() => {
         async function getData(){
-            const response = await services.Api.get(`/menu`)
-            setData(response.data.data)
+            const response = await services.Api.get(`/item`)
+            setData(response.data.itens)
         }
         getData()
         //O retorno é para definir o que acontecerá caso o componente for desmontado
@@ -27,8 +27,8 @@ const Cards = (props)=>{
                         qtde: 0,
                         subtotal:0,
                     }
-                    if(item.sabor)
-                        obj.sabor = new Array(item.sabor.length)
+                    if(item.item_sabor)
+                        obj.item_sabor = new Array(item.item_sabor.length)
 
                 return obj
             })
@@ -67,8 +67,8 @@ const Cards = (props)=>{
 
         let obj = pedidos
         obj.itens[idx_itens].nome = data[idx_itens].nome
-        obj.itens[idx_itens].sabor[idx_sabor] = {...obj.itens[idx_itens].sabor[idx_sabor],[data[idx_itens].sabor[idx_sabor]]: Number(qtde)}   //O SABOR DELE SERÁ INCREMENTADO COM O NOVO SABOR DO INPUT
-        obj.itens[idx_itens].qtde = obj.itens[idx_itens].sabor.reduce((acc,cur)=> acc+Number(Object.values(cur)), 0)
+        obj.itens[idx_itens].item_sabor[idx_sabor] = {...obj.itens[idx_itens].item_sabor[idx_sabor],[data[idx_itens].item_sabor[idx_sabor].sabor.nome]: Number(qtde)}   //O SABOR DELE SERÁ INCREMENTADO COM O NOVO SABOR DO INPUT
+        obj.itens[idx_itens].qtde = obj.itens[idx_itens].item_sabor.reduce((acc,cur)=> acc+Number(Object.values(cur)), 0)
         obj.itens[idx_itens].subtotal = obj.itens[idx_itens].qtde * Number(data[idx_itens].preco) //O SUBTOTAL DELE SERÁ IGUAL A MUTIPLICAÇÃO DA SOMA DE TODOS OS SABORES DO ITEM ATUAL
         
         setPedidos({...pedidos, ...obj})    //MESCLAGEM DE PEDIDOS
@@ -82,11 +82,11 @@ const Cards = (props)=>{
         {/* Se existir o campo sabor: Esconda QTDE e exiba os SABORES */}
 
             <p className='operadores'>x</p>
-            {data[index].sabor?
+            {data[index].item_sabor.length?
                 <div className="inline_sabor">
-                    {data[index].sabor.map((sabor,i)=>
+                    {data[index].item_sabor.map((sabor,i)=>
                         <div key={i}>
-                            <p className="sabor">{sabor}</p>
+                            <p className="sabor">{sabor.sabor.nome}</p>
                             <input type='number' onChange={(e)=>getSabores(e,index,i)} placeholder='QTDE'/>
                         </div>
                     

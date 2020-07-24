@@ -62,10 +62,10 @@ const Confirm = (props) => {
         let listaItens = ''
         for(let i=0; i<itens.length; i++)
             if(itens[i].qtde > 0){
-                if(itens[i].sabor){
+                if(itens[i].item_sabor){
                     listaItens += `  ◼️ ${itens[i].nome}`
                     listaItens += `:\n`
-                    itens[i].sabor.forEach((arry) => {
+                    itens[i].item_sabor.forEach((arry) => {
                         listaItens += `        ▪️ _${Object.values(arry)} de ${Object.keys(arry)};_\n`
                     })
                 }else
