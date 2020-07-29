@@ -1,13 +1,17 @@
 import React, {useState, useEffect} from 'react';
 
+import FormEdit from '../components/FormEdit'
 
 import services from '../services/api'
 import FormatNumber from '../utils/FormatNumber';
-
+import Footer from '../pages/Footer'
 
 const Cards = (props)=>{
     const [data, setData] = useState([])
     const [pedidos, setPedidos] = useState({})
+    const [bool, setBool] = useState(false);
+
+
 
     useEffect(() => {
         async function getData(){
@@ -77,6 +81,7 @@ const Cards = (props)=>{
         document.getElementById(`${obj.itens[idx_itens].id}arrow`).setAttribute('style','display:flex; animation-play-state: running')
     }
 
+
     function showInput(id,index){
         return (<>
         {/* Se existir o campo sabor: Esconda QTDE e exiba os SABORES */}
@@ -106,23 +111,69 @@ const Cards = (props)=>{
         </>)
     }
 
+    function showAdmin(id, index){
+        return(<>
+            {
+            bool?
+                    <FormEdit id={id} item={data[index]} showEdit="showEdit" setBool={setBool} />
+                :
+                    null
+            }
+            <div className="inline">
+                <p>Disponível?</p>
+                <p className={data[index].disponivel?"focused sim":"sim"} onClick={async(e)=>{
+                    e.target.classList = 'focused sim'
+                    e.target.parentNode.getElementsByClassName('nao')[0].classList = 'nao'
+                    await services.Api.put(`/item/${id}`,{disponivel:true})
+                }}>Sim</p>
+                <p className={!data[index].disponivel?"focused nao":"nao"} onClick={async(e)=>{
+                    e.target.classList = 'focused nao'
+                    e.target.parentNode.getElementsByClassName('sim')[0].classList = 'sim'
+                    await services.Api.put(`/item/${id}`,{disponivel:false})
+                }}>Não</p>
+            </div>
+            <div className="inline controls">
+                <i className='material-icons' onClick={async()=>{
+                    setBool(!bool)
+                }}>edit</i>
+                <i className='material-icons' onClick={async(e)=>{
+                    document.getElementById(index).remove()
+                    
+                    await services.Api.delete(`/item/${id}`)
+                    .then(()=>{
+                        let aux = data
+                        aux.splice(index,1)
+                        setData(aux)
+                    })
+
+                }}>delete</i>
+            </div>
+        </>)
+    }
+
     return(
         <>
             <div className="cards">
                 {data.map((item,i)=>
                     <div id={i} key={item.id} className="item">
-                        <img src={item.imagem} alt={item.nome} />
-                        <h3>{item.nome}</h3>
-                        <p className="descricao">{item.descricao}</p>
-                        <div className="inline_items">
-                            <p><small>Preço:</small></p>
-                            <p className="preco">{FormatNumber.toREAL(Number(item.preco))}</p>
+                        {props.showUnavailable && item.disponivel == false?
+                            <div className="unavailable">
+                                <p>INDISPONíVEL</p>
+                            </div>
+                        :null}
+                            <img src={item.imagem} alt={item.nome} />
+                            <h3>{item.nome}</h3>
+                            <p className="descricao">{item.descricao}</p>
+                            <div className="inline_items">
+                                <p><small>Preço:</small></p>
+                                <p className="preco">{FormatNumber.toREAL(Number(item.preco))}</p>
+                            </div>
+                            {props.showInput?showInput(item.id,i):null}
+                            {props.showAdmin?showAdmin(item.id,i):null}
                         </div>
-                        {props.showInput?showInput(item.id,i):null}
-                        <input type="hidden" name="nome" value="{item.nome}" />
-                    </div>
                 )}
             </div>
+            <Footer />
         </>
     )
 }

@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import FormatNumber from '../../utils/FormatNumber';
 import Footer from '../Footer'
+import services from '../../services/api'
 
 import '../default.css';
 import './Confirm.css';
@@ -11,7 +12,7 @@ const Confirm = (props) => {
     
     
     const [inpts, setInpts] = useState({});
-    const [radio, setRadio] = useState({"nao":true})  
+    // const [radio, setRadio] = useState({"nao":true})  
     const [troco, setTroco] = useState('')
     
     useEffect(() => {
@@ -95,15 +96,25 @@ Deu um total de *${FormatNumber.toREAL(total)}*
         return url+message
     } 
 
-    function validaForm(e){
+    async function validaForm(e){
 
         if(!inpts['nome'] || inpts['nome'] === '' || !inpts['local'] || inpts['local'] === ''){
             alert('Me diga seu nome e local para entrega!')
             e.preventDefault()
         }
-        else
+        else{
+            const cliente_id = await services.Api.post(`/cliente`,{
+               nome: inpts.nome,
+            //    local: inpts.local,   //criei o campo local, mas o prisma não o identifica
+               observacao: inpts.obs?inpts.obs:'',
+               troco: troco?parseFloat(troco):0
+            })
+
+            // cliente_id.data.created.id       //assim que crio um cliente, devo criar também o seu pedido
+
             window.open(sendWpp(),'_blank')
         // console.log(itens,total)
+        }
     }
 
     return (
@@ -126,7 +137,7 @@ Deu um total de *${FormatNumber.toREAL(total)}*
                     </tfoot>
                 </table>
 
-                <div className="troco">
+                {/* <div className="troco">
                     <p>Precisarei levar troco?</p>
                     <p className={radio.sim?"focused sim":"sim"} onClick={()=>setRadio({"sim":true, "nao":false})}>Sim</p>
                     <p className={radio.nao?"focused nao":"nao"} onClick={()=>{setTroco('');setRadio({"sim":false, "nao":true})}}>Não</p>
@@ -134,9 +145,9 @@ Deu um total de *${FormatNumber.toREAL(total)}*
                 {radio.sim?
                     <div className="trocoFor">
                         <p>Troco para quanto?</p>
-                        <input type="number" min={1} max={100} onChange={(e)=>{setTroco(e.target.value)}} value={FormatNumber.isOverHundred(troco)} placeholder={"R$"}/>
+                        <input autoFocus={true} type="number" min={1} max={100} onChange={(e)=>{setTroco(e.target.value)}} value={FormatNumber.isOverHundred(troco)} placeholder={"R$"}/>
                     </div>
-                    :null}
+                    :null} */}
 
                 <input className='inpt_confirm' type="text" name="nome" onChange={getValue} placeholder="Seu nome/apelido"/>
                 <input className='inpt_confirm' type="text" name="local" onChange={getValue} placeholder="Local para entrega"/>

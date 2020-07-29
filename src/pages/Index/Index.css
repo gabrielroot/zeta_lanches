@@ -13,12 +13,16 @@
     margin-top: 30px;
 }
 
-.card img{
+.card .linkImg,.card img {
+    justify-self: center;
+}
+
+.linkImg img, .card img{
+    border: 4px solid #000000;
+    box-shadow: black -2px 0px 20px 6px;
     width: 120px;
     border-radius: 100%;
-    justify-self: center;
-    border: 4px solid #000000;
-    box-shadow: -2px 0px 20px 6px;
+    cursor: default;
 }
 
 .card h1{

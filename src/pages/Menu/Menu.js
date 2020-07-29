@@ -41,7 +41,7 @@ const Menu = (props) => {
                     <p>Para hoje, temos...</p>
                 </div>
 
-                <Cards showInput={true} pedidos={getQPedidos} />
+                <Cards showInput={true} showUnavailable={true} pedidos={getQPedidos} />
 
                 <Link to='/confirm' className='confirm button' onClick={submitForm} >Informar dados para entrega</Link>
             </div>

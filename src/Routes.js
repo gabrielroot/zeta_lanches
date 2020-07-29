@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 import Index from './pages/Index/Index';
 import Menu from './pages/Menu/Menu';
+import Hoje from './pages/Hoje/Hoje';
 import Confirm from './pages/Confirm/Confirm';
 
 
@@ -26,6 +27,10 @@ const Routes = () => {
   
             <Route path="/menu">
               <Menu setParams={setParams}/>
+            </Route>
+
+            <Route path="/hoje">
+              <Hoje />
             </Route>
   
             <Route path="/confirm">
