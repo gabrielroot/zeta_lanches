@@ -4,7 +4,6 @@ import FormEdit from '../components/FormEdit'
 
 import services from '../services/api'
 import FormatNumber from '../utils/FormatNumber';
-import Footer from '../pages/Footer'
 
 const Cards = (props)=>{
     const [data, setData] = useState([])
@@ -173,7 +172,6 @@ const Cards = (props)=>{
                         </div>
                 )}
             </div>
-            <Footer />
         </>
     )
 }
