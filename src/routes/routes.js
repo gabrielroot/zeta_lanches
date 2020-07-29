@@ -14,7 +14,7 @@ routes.get('/menu', menu.index)
 routes.get('/item',item.index)
 routes.post('/item',item.create)
 routes.put('/item/:id',item.update)
-routes.delete('/item', item.delete)
+routes.delete('/item/:id', item.delete)
 
 routes.get('/sabor',sabor.index)
 routes.post('/sabor', sabor.create)

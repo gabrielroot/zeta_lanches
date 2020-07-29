@@ -22,6 +22,8 @@ module.exports = {
                 quantidade: 1,
             }
             }
+        },select:{
+            id:true
         }
         })
         if(created)

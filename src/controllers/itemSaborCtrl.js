@@ -25,17 +25,18 @@ module.exports = {
 
     async create(req,res){
         const {id} = req.params
-        const {sabor_fk} = req.body
+        const {sabores_id} = req.body
         
         const hasItem = await prisma.item.findOne({where:{id: parseInt(id)}})
-        const hasSabor = await prisma.sabor.findOne({where:{id:sabor_fk}})
         let sabor = {}
 
-        if(hasItem && hasSabor)
-            sabor = await prisma.item_sabor.create({data:{
-                item: {connect:{id:parseInt(id)}},
-                sabor: {connect:{id:sabor_fk}}
-            }})
+        if(hasItem)
+            sabores_id.map(async (saborId)=>{
+                sabor = await prisma.item_sabor.create({data:{
+                    item: {connect:{id:parseInt(id)}},
+                    sabor: {connect:{id: saborId}}
+                }})
+            })
         else{
             return res.status(404).json({message: "Erro, Sabor ou item de referência não existem",status:false})
         }

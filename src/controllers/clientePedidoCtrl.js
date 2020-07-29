@@ -40,38 +40,60 @@ module.exports = {
     },
 
     async create(req, res){
-        const {idSabor, item_fk, cliente_fk, ...pedido} = req.body
+        const {idSabor, item_fk, nome, observacao, troco, quantidade, subtotal, local} = req.body
 
-        const cliente = await prisma.cliente.findOne({where:{id:cliente_fk}}) //verificar se ambos existem
+        let itemSabor,pedido = {}
+        if(idSabor)
+            itemSabor = await prisma.item_sabor.findOne({where:{id: idSabor}})
         const item = await prisma.item.findOne({where:{id:item_fk}})
 
-        if(!cliente || !item)
-            return res.status(404).json({message: "Erro, cliente ou item não encontrado",status:false})
+        if(!itemSabor && idSabor || !item)
+            return res.status(404).json({message: "Erro, item ou sabor não encontrado",status:false})
 
-        const clientePedido = await prisma.cliente_pedido.create({data:{ //depois, confirmar se foi criado
-            ...pedido,
-            item: {connect:{id: item_fk}},
-            cliente: {connect:{id: cliente_fk}}
-        },
-        select:{
-            id: true
-        }
-        })
+        if(itemSabor)    //Se existe a chave "itemSabor", faça um insert no "pedido_sabor"
+            pedido = await prisma.cliente_pedido.create({data:{
+                subtotal,
+                quantidade,
+                item:{
+                    connect:{id:item_fk}
+                },
+                cliente:{
+                    create:{
+                        nome,
+                        troco,
+                        observacao,
+                        // local,
+                    }
+                },
+                pedido_sabor:{//criar um "for" separado, inserindo cada sabor
+                    create:{
+                        quantidade, //a quantidade de sabor: 1 refri laranja
+                        item_sabor:{connect:{id:idSabor}}
+                    }
+                }},select:{ id:true }
+            })
+        else
+            pedido = await prisma.cliente_pedido.create({data:{
+                subtotal,
+                quantidade,
+                item:{
+                    connect:{id:item_fk}
+                },
+                cliente:{
+                    create:{
+                        nome,
+                        troco,
+                        observacao,
+                        // local,
+                    }
+                }},select:{ id:true }
+            })
 
-        const itemSabor = await prisma.item_sabor.findOne({where:{id: idSabor}})
-
-        const pedidoSabor = await prisma.pedido_sabor.create({data:{
-            quantidade: 2,
-            item_sabor: {connect:{ id: itemSabor.id }},
-            cliente_pedido: {connect:{ id: clientePedido.id }}
-        }})
-
-
-        if(pedidoSabor){
-            return res.status(201).json({message: "Criado!",status:true,pedidoSabor})
+        if(pedido){
+            return res.status(201).json({message: "Criado!",status:true,pedido})
         }
         else
-            return res.status(500).json({message: "Erro, falha interna",status:false,pedidoSabor})
+            return res.status(500).json({message: "Erro, falha interna",status:false,pedido})
     },
 
     async update(req,res){

@@ -17,8 +17,8 @@ module.exports = {
                 descricao: true,
                 imagem: true,
                 preco: true,
+                disponivel:true,
                 item_sabor:{
-                    where:{disponivel:true},
                     select:{
                         sabor:{
                             select:{
@@ -27,7 +27,7 @@ module.exports = {
                         }
                     }
                 }
-            }
+            },orderBy:{nome: "asc"}
         })
         if(itens)
             return res.status(200).json({message: "sucesso!",status:true,itens})
@@ -69,13 +69,13 @@ module.exports = {
     },
 
     async delete(req,res){
-        const {id} = req.body
+        const {id} = req.params
 
-        const founded = await prisma.item.findOne({where:{id}})
+        const founded = await prisma.item.findOne({where:{id: parseInt(id)}})
         if(founded){
             const destroyed = await prisma.item.delete({
                 where:{
-                    id
+                    id: parseInt(id)
                 }
             })
             if(destroyed)
