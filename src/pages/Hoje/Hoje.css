@@ -119,3 +119,9 @@
     border-radius: 40%;
     background-color: rgba(0, 0, 0, 0.267);
 }
+
+@media (max-width: 900px){
+    .unavailable p{
+        font-size: 15px;
+    }
+}
