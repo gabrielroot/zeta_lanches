@@ -102,19 +102,9 @@ Deu um total de *${FormatNumber.toREAL(total)}*
             alert('Me diga seu nome e local para entrega!')
             e.preventDefault()
         }
-        else{
-            const cliente_id = await services.Api.post(`/cliente`,{
-               nome: inpts.nome,
-            //    local: inpts.local,   //criei o campo local, mas o prisma não o identifica
-               observacao: inpts.obs?inpts.obs:'',
-               troco: troco?parseFloat(troco):0
-            })
-
-            // cliente_id.data.created.id       //assim que crio um cliente, devo criar também o seu pedido
-
+        else
             window.open(sendWpp(),'_blank')
         // console.log(itens,total)
-        }
     }
 
     return (
