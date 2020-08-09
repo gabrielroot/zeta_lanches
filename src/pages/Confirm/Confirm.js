@@ -136,7 +136,11 @@ Deu um total de *${FormatNumber.toREAL(total)}*
                         <p>Troco para quanto?</p>
                         <input autoFocus={true} type="number" min={1} max={100} onChange={(e)=>{setTroco(e.target.value)}} value={FormatNumber.isOverHundred(troco)} placeholder={"R$"}/>
                     </div>
+<<<<<<< HEAD
                     :null}
+=======
+                    :null} 
+>>>>>>> b1039233ced17f6f7b73957f0b74ea533c44be44
 
                 <input className='inpt_confirm' type="text" name="nome" onChange={getValue} placeholder="Seu nome/apelido"/>
                 <input className='inpt_confirm' type="text" name="local" onChange={getValue} placeholder="Local para entrega"/>
