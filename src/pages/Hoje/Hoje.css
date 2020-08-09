@@ -116,6 +116,36 @@ h1{
     letter-spacing: 10px;
 }
 
+.tags{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 95%;
+    padding: 5px;
+    align-items: center;
+    justify-items: center;
+}
+
+.tag{
+    text-align: center;
+    background-color: #590000;
+    padding: 6px !important;
+    border-radius: 10px;
+    font-size: 12px !important;
+    width: 80%;
+    margin-top: 10px;
+}
+
+.tag:last-child{
+    background-color: #811616;
+    font-size: 20px !important;
+    color: white;
+    cursor: pointer;
+}
+
+.tag:last-child:hover{
+    background-color: #b03838;
+}
+
 .controls{
     justify-content: left;
     width: 80%;
@@ -163,10 +193,10 @@ h1{
 .btn_create{
     width: 100%;
     max-width: 1200PX;
+    justify-self: center;
 }
 .button{
     margin-top: 20px;
-    justify-self: center;
 }
 
 @media (max-width: 900px){

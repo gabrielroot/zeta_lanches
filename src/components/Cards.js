@@ -111,7 +111,7 @@ const Cards = (props)=>{
     function showAdmin(id, index){
         return(<>
             <FormEdit id={id} item={data[index]} editar={true} />
-            <div className="inline">
+            <div className="inline">                                        {/* Disponível? S/N */}
                 <p>Disponível?</p>
                 <p className={data[index].disponivel?"focused sim":"sim"} onClick={async(e)=>{
                     e.target.classList = 'focused sim'
@@ -124,16 +124,25 @@ const Cards = (props)=>{
                     await services.Api.put(`/item/${id}`,{disponivel:false})
                 }}>Não</p>
             </div>
-            <div className="inline controls"> 
-                <i className='material-icons' onClick={async()=>{
+            <div className="tags">
+                <p className="tag">Laranja</p>
+                <p className="tag">Guaraná</p>
+                <p className="tag">Guaraná</p>
+                <p className="tag">Guaraná</p>
+                <p className="tag">Guaraná</p>
+                <i className='material-icons tag' onClick={()=>{
+                    console.log('kkkkkkkkkkkkkkkkkk')
+                }} >add</i>
+            </div>
+            <div className="inline controls">                               
+                <i className='material-icons' onClick={async()=>{           {/* EDIT */}
                     let index = data.indexOf(data.find(item=>id===item.id))
                     console.log('id:',id,'index:',index)
                     if(index!==undefined){
-                        console.log('kkkkkkkkk',data[index].id)
                         document.getElementById(id+'edit').setAttribute('style','display:grid;')
                     }
                 }}>edit</i>
-                <i className='material-icons' onClick={async()=>{
+                <i className='material-icons' onClick={async()=>{           {/* DELETE */}
                     if(window.confirm('Deseja remover o item?')){
                         document.getElementById(index).remove()
                         console.log('Acessando o index: ',index)
