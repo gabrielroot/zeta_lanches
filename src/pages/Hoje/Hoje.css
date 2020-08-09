@@ -1,14 +1,27 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+h1{
+    padding: 50px 0;
+}
+
+#create{
+    position: fixed ;
+    display: grid ;
+}
+
 .formEdit{
     position: absolute;
     z-index: 2;
-    display: grid;
+    display: none;
     padding: 5% 5%;
     width: 100%;
     height: 100%;
     justify-self: center;
     row-gap: 30px;
     background-color: rgba(0, 0, 0, 0.925);
+    box-shadow: 0px 0px 9px 3px #636129;
 }
+
 
 .formEdit p{
     color: white;
@@ -23,7 +36,7 @@
     text-align: center;
 }
 
-.formEdit input{
+.formEdit input, .formEdit textarea{
     font-size: 15px;
     border: none;
     color: white;
@@ -34,6 +47,10 @@
     background-color: rgba(0, 0, 0, 0.33);
     border-radius: 4px;
     box-shadow: #630202 0px 0px 14px 0px;
+}
+
+.formEdit textarea{
+    min-height: 80px;
 }
 
 .SaveForm{
@@ -120,8 +137,41 @@
     background-color: rgba(0, 0, 0, 0.267);
 }
 
+.addItem{
+    justify-self: center;
+    align-self: center;
+    cursor: pointer;
+    border: 1px solid #12ff00;
+    height: 50px;
+    width: 50%;
+    max-width: 600PX;
+    min-width: 200PX;
+    font-size: 30px;
+    text-align: center;
+    color: green;
+    transition: all 300ms;
+    margin-top: 20px;
+}
+
+.addItem:hover{
+    border:none;
+    color: #ffffff;
+    background-color: rgb(5, 115, 5);
+    box-shadow: rgb(14, 115, 5) 0px 0px 8px 4px;
+}
+
+.btn_create{
+    width: 100%;
+    max-width: 1200PX;
+}
+.button{
+    margin-top: 20px;
+    justify-self: center;
+}
+
 @media (max-width: 900px){
     .unavailable p{
         font-size: 15px;
     }
+
 }

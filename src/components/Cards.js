@@ -8,8 +8,6 @@ import FormatNumber from '../utils/FormatNumber';
 const Cards = (props)=>{
     const [data, setData] = useState([])
     const [pedidos, setPedidos] = useState({})
-    const [bool, setBool] = useState(false);
-
 
 
     useEffect(() => {
@@ -112,12 +110,7 @@ const Cards = (props)=>{
 
     function showAdmin(id, index){
         return(<>
-            {
-            bool?
-                    <FormEdit id={id} item={data[index]} showEdit="showEdit" setBool={setBool} />
-                :
-                    null
-            }
+            <FormEdit id={id} item={data[index]} editar={true} />
             <div className="inline">
                 <p>Disponível?</p>
                 <p className={data[index].disponivel?"focused sim":"sim"} onClick={async(e)=>{
@@ -131,20 +124,32 @@ const Cards = (props)=>{
                     await services.Api.put(`/item/${id}`,{disponivel:false})
                 }}>Não</p>
             </div>
-            <div className="inline controls">
+            <div className="inline controls"> 
                 <i className='material-icons' onClick={async()=>{
-                    setBool(!bool)
+                    let index = data.indexOf(data.find(item=>id===item.id))
+                    console.log('id:',id,'index:',index)
+                    if(index!==undefined){
+                        console.log('kkkkkkkkk',data[index].id)
+                        document.getElementById(id+'edit').setAttribute('style','display:grid;')
+                    }
                 }}>edit</i>
-                <i className='material-icons' onClick={async(e)=>{
-                    document.getElementById(index).remove()
-                    
-                    await services.Api.delete(`/item/${id}`)
-                    .then(()=>{
-                        let aux = data
-                        aux.splice(index,1)
-                        setData(aux)
-                    })
-
+                <i className='material-icons' onClick={async()=>{
+                    if(window.confirm('Deseja remover o item?')){
+                        document.getElementById(index).remove()
+                        console.log('Acessando o index: ',index)
+                        await services.Api.delete(`/item/${id}`)
+                        .then(()=>{
+                            let index = data.indexOf(data.find(item=>id===item.id))
+                            if(index){
+                                console.table(data[index])
+                                let aux = data
+                                console.table(aux.splice(index,1))
+                                setData(aux)
+                                console.table(data)
+                            }
+                        })
+                    }
+                        
                 }}>delete</i>
             </div>
         </>)
@@ -155,7 +160,7 @@ const Cards = (props)=>{
             <div className="cards">
                 {data.map((item,i)=>
                     <div id={i} key={item.id} className="item">
-                        {props.showUnavailable && item.disponivel == false?
+                        {props.showUnavailable && item.disponivel === false?
                             <div className="unavailable">
                                 <p>INDISPONíVEL</p>
                             </div>

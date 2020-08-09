@@ -3,7 +3,7 @@ import React,{useState} from 'react';
 import services from '../services/api'
 import FormatNumber from '../utils/FormatNumber';
 const FormEdit = (props) => {
-    const [criar, setCriar] = useState({
+    const [editar, setEditar] = useState({
         id:-1,
         nome: props.item.nome,
         descricao: props.item.descricao,
@@ -14,21 +14,21 @@ const FormEdit = (props) => {
     function getValue(e){
         const nome = e.target.name
         const valor = e.target.value
-        setCriar({...criar, [nome]:valor})
+        setEditar({...editar, [nome]:valor})
     }
 
     return (
         <>
-            <div className="formEdit">
+            <div id={props.id+'edit'} className="formEdit">
                 <h3>Editar</h3>
                 <p>({props.item.nome})</p>
                 <div className="inline">
                     <p>Nome</p>
-                    <input type="text" name="nome" placeholder='Nome' onChange={getValue} value={criar.nome}/>
+                    <input type="text" name="nome" placeholder='Nome' onChange={getValue} value={editar.nome}/>
                 </div>
                 <div className="inline">
                     <p>Descrição</p>
-                    <input type="text" name="descricao" onChange={getValue} value={criar.descricao} placeholder='Descricao'/>
+                    <textarea type="text" name="descricao" onChange={getValue} value={editar.descricao} placeholder='Descricao'></textarea>
                 </div>
                 <div className="inline">
                     <p>Imagem</p>
@@ -36,20 +36,20 @@ const FormEdit = (props) => {
                 </div>
                 <div className="inline">
                 <p>Preço</p>
-                    <input type="text" name="preco" onChange={getValue} value={FormatNumber.toValue(criar.preco)} placeholder='Preço'/>
+                    <input type="text" name="preco" onChange={getValue} value={FormatNumber.toValue(editar.preco)} placeholder='Preço'/>
                 </div>
                 <div className="SaveForm">
-                    <p onClick={()=>props.setBool(false)}>Cancelar</p>
+                    <p onClick={()=>document.getElementById(props.id+'edit').setAttribute('style','display:none;')}>Cancelar</p>
                     <p onClick={async()=>{
-                        if(Object.values(criar).find(value=>value == '')!==''){
-                            setCriar({...criar,['id']:props.id})
-                            props.item.nome = criar.nome
-                            props.item.descricao = criar.descricao
-                            props.item.preco = criar.preco
-                            props.item.imagem = criar.imagem
-                            console.log(criar)
-                            await services.Api.put(`/item/${props.id}`,{...criar,['id']:props.id,['preco']:Number(criar.preco)})
-                            props.setBool(false)
+                        if(Object.values(editar).find(value=>value === '')!==''){
+                            setEditar({...editar,['id']:props.id})
+                            props.item.nome = editar.nome
+                            props.item.descricao = editar.descricao
+                            props.item.preco = editar.preco
+                            props.item.imagem = editar.imagem
+                            console.log(editar)
+                            await services.Api.put(`/item/${props.id}`,{...editar,['id']:props.id,['preco']:Number(editar.preco)})
+                            document.getElementById(props.id+'edit').setAttribute('style','display:none;')
                         }else
                             alert('Preencha todos os campos!')
                     }}>Salvar</p>
