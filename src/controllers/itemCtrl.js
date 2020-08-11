@@ -22,6 +22,7 @@ module.exports = {
                     select:{
                         sabor:{
                             select:{
+                                id:true,
                                 nome: true
                             }
                         }

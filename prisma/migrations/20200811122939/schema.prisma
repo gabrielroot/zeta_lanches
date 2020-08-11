@@ -45,10 +45,11 @@ model item {
 model item_sabor {
   disponivel Boolean @default(true)
   id         Int     @default(autoincrement()) @id
-  item_fk    Int
-  sabor_fk   Int
-  item       item    @relation(fields: [item_fk], references: [id])
-  sabor      sabor   @relation(fields: [sabor_fk], references: [id])
+  
+  item_fk    Int?
+  sabor_fk   Int?
+  item       item?    @relation(fields: [item_fk], references: [id])
+  sabor      sabor?   @relation(fields: [sabor_fk], references: [id])
 }
 
 model pedido_sabor {

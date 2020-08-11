@@ -23,15 +23,15 @@ module.exports = {
 
     async delete(req,res){
 
-        const {id} = req.body
+        const {id} = req.params
 
         const found = await prisma.sabor.findOne({where:{
-            id
+            id: parseInt(id)
         }})
         if(found){
             const destroyed = await prisma.sabor.delete({
                 where:{
-                    id 
+                    id: parseInt(id)
                 }
             })
             if(destroyed)

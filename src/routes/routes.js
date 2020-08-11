@@ -19,12 +19,12 @@ routes.delete('/item/:id', item.delete)
 routes.get('/sabor',sabor.index)
 routes.post('/sabor', sabor.create)
 routes.put('/sabor/:id', sabor.update)
-routes.delete('/sabor', sabor.delete)
+routes.delete('/sabor/:id', sabor.delete)
 
 // // /item/4/sabor
 routes.get('/item/:id/sabor',itemSabor.index)
 routes.post('/item/:id/sabor',itemSabor.create)
-routes.delete('/item/sabor',itemSabor.delete)
+routes.delete('/item/:id/sabor/:saborId',itemSabor.delete)
 routes.put('/item/sabor/:id',itemSabor.update)
 
 

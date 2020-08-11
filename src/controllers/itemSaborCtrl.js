@@ -14,7 +14,7 @@ module.exports = {
             select:{
                 id: true,
                 disponivel: true,
-                sabor:{ select:{ nome: true } }
+                sabor:{ select:{ id: true, nome: true } }
             }
         })
         if(sabores)
@@ -25,20 +25,22 @@ module.exports = {
 
     async create(req,res){
         const {id} = req.params
-        const {sabores_id} = req.body
+        const {saborId} = req.body
         
         const hasItem = await prisma.item.findOne({where:{id: parseInt(id)}})
-        let sabor = {}
-
-        if(hasItem)
-            sabores_id.map(async (saborId)=>{
-                sabor = await prisma.item_sabor.create({data:{
-                    item: {connect:{id:parseInt(id)}},
-                    sabor: {connect:{id: saborId}}
-                }})
-            })
+        let exists = await prisma.item_sabor.findMany({where:{
+            AND:{
+                sabor_fk:saborId,
+                item_fk: parseInt(id)
+            }
+        }})
+        if(hasItem && exists.length===0)
+            sabor = await prisma.item_sabor.create({data:{
+                item: {connect:{id:parseInt(id)}},
+                sabor: {connect:{id: saborId}}
+            }})
         else{
-            return res.status(404).json({message: "Erro, Sabor ou item de referência não existem",status:false})
+            return res.status(500).json({message: "Erro, Sabor ou item de referência não existem ou a um item com este sabor já existe",status:false})
         }
 
         if(sabor)
@@ -48,16 +50,25 @@ module.exports = {
     },
 
     async delete(req,res){
-
-        const {id} = req.body
-
-        const found = await prisma.item_sabor.findOne({where:{
-            id
-        }})
+        const {id,saborId} = req.params
+        let found = await prisma.item_sabor.findMany({where:{
+            AND:[{
+                    sabor_fk:{
+                        equals: parseInt(saborId)
+                    },
+                },
+                {
+                    item_fk: {
+                        equals: parseInt(id)
+                    }
+                }]
+            },
+            select:{id:true}
+        })
         if(found){
             const destroyed = await prisma.item_sabor.delete({
                 where:{
-                     id
+                     id:found[0].id
                 }
             })
             if(destroyed)
