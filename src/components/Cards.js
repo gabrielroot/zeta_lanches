@@ -4,6 +4,7 @@ import FormEdit from '../components/FormEdit'
 
 import services from '../services/api'
 import FormatNumber from '../utils/FormatNumber';
+import EditaSabor from './EditaSabor';
 
 const Cards = (props)=>{
     const [data, setData] = useState([])
@@ -111,6 +112,7 @@ const Cards = (props)=>{
     function showAdmin(id, index){
         return(<>
             <FormEdit id={id} item={data[index]} editar={true} />
+            <EditaSabor id={id} sabores={data[index].item_sabor} />
             <div className="inline">                                        {/* Disponível? S/N */}
                 <p>Disponível?</p>
                 <p className={data[index].disponivel?"focused sim":"sim"} onClick={async(e)=>{
@@ -124,37 +126,36 @@ const Cards = (props)=>{
                     await services.Api.put(`/item/${id}`,{disponivel:false})
                 }}>Não</p>
             </div>
+            <p>Sabores:</p>
             <div className="tags">
-                <p className="tag">Laranja</p>
-                <p className="tag">Guaraná</p>
-                <p className="tag">Guaraná</p>
-                <p className="tag">Guaraná</p>
-                <p className="tag">Guaraná</p>
+                {                           //LISTAGEM DE SABORES, CASO EXISTA
+                    data[index].item_sabor.length>0?
+                        data[index].item_sabor.map((data)=> <p key={data.sabor.nome} className="tag">{data.sabor.nome}</p> )
+                    :
+                        null
+                }
                 <i className='material-icons tag' onClick={()=>{
-                    console.log('kkkkkkkkkkkkkkkkkk')
-                }} >add</i>
+                    let index = data.indexOf(data.find(item=>id===item.id)) //O index pode variar, mas o id NÃO. 
+                    if(index!==undefined)
+                        document.getElementById(id+'sabor').setAttribute('style','display:grid;')
+                }} >+</i>
             </div>
             <div className="inline controls">                               
                 <i className='material-icons' onClick={async()=>{           {/* EDIT */}
                     let index = data.indexOf(data.find(item=>id===item.id))
-                    console.log('id:',id,'index:',index)
-                    if(index!==undefined){
+                    if(index!==undefined)
                         document.getElementById(id+'edit').setAttribute('style','display:grid;')
-                    }
+                    
                 }}>edit</i>
                 <i className='material-icons' onClick={async()=>{           {/* DELETE */}
                     if(window.confirm('Deseja remover o item?')){
                         document.getElementById(index).remove()
-                        console.log('Acessando o index: ',index)
                         await services.Api.delete(`/item/${id}`)
                         .then(()=>{
                             let index = data.indexOf(data.find(item=>id===item.id))
                             if(index){
-                                console.table(data[index])
                                 let aux = data
-                                console.table(aux.splice(index,1))
                                 setData(aux)
-                                console.table(data)
                             }
                         })
                     }
