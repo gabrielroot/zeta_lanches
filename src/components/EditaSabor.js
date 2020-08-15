@@ -36,15 +36,16 @@ const EditaSabor = (props) => {
                                     }}>+</p>
                                 }
                                 <i className='material-icons' onClick={async()=>{
-                                    const status = await services.Api.delete(`/sabor/${item.id}`) 
-                                    if(status.data.status)
-                                        if(window.confirm('Deseja remover o sabor?')){
+                                    if(window.confirm('Deseja remover o sabor?')){
+                                        const status = await services.Api.delete(`/sabor/${item.id}`) 
+                                        if(status.data.status){
                                             const index = saboresAvailable.indexOf(saboresAvailable.find(search=>item.id===search.id))
                                             let aux = saboresAvailable
                                             aux.splice(index,1)
                                             setSaboresAvailable(aux)
                                             document.getElementById(item.nome+item.id).setAttribute('style','display:none;')
                                         }
+                                    }
                                 }}>delete</i>
                             </div>
                         </div>

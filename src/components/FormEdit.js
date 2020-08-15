@@ -4,7 +4,6 @@ import services from '../services/api'
 import FormatNumber from '../utils/FormatNumber';
 const FormEdit = (props) => {
     const [editar, setEditar] = useState({
-        id:-1,
         nome: props.item.nome,
         descricao: props.item.descricao,
         imagem: props.item.imagem,
@@ -42,13 +41,12 @@ const FormEdit = (props) => {
                     <p onClick={()=>document.getElementById(props.id+'edit').setAttribute('style','display:none;')}>Cancelar</p>
                     <p onClick={async()=>{
                         if(Object.values(editar).find(value=>value === '')!==''){
-                            setEditar({...editar,['id']:props.id})
                             props.item.nome = editar.nome
                             props.item.descricao = editar.descricao
                             props.item.preco = editar.preco
                             props.item.imagem = editar.imagem
                             console.log(editar)
-                            await services.Api.put(`/item/${props.id}`,{...editar,['id']:props.id,['preco']:Number(editar.preco)})
+                            await services.Api.put(`/item/${props.id}`,{...editar,['preco']:Number(editar.preco)})
                             document.getElementById(props.id+'edit').setAttribute('style','display:none;')
                         }else
                             alert('Preencha todos os campos!')
