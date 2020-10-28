@@ -20,7 +20,7 @@ const Menu = (props) => {
         setPedidos(pedd)
         const total = pedd.itens.reduce((acc, cur) => acc + cur.subtotal, 0)
         setTotal(total)
-        document.querySelector('.total').setAttribute('style', 'display:flex;')
+        document.querySelector('.total').setAttribute('style', 'display:grid;')
     }
 
     function submitForm(e) {
@@ -46,8 +46,17 @@ const Menu = (props) => {
                 <Link to='/confirm' className='confirm button' onClick={submitForm} >Informar dados para entrega</Link>
             </div>
             <div className="total">
-                <p>Total:</p>
-                <p>{FormatNumber.toREAL(total)}</p>
+                <div className="total_center">
+                    <p>Total:</p>
+                    <p>{FormatNumber.toREAL(total)}</p>
+                </div>
+                <div>
+                    <Link to='/confirm' className="done" onClick={submitForm} >
+                        <div className="material-icons">
+                            done
+                        </div>
+                    </Link>
+                </div>
             </div>
             <Footer />
         </>

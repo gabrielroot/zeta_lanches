@@ -90,7 +90,7 @@ const Cards = (props)=>{
                     {data[index].item_sabor.map((sabor,i)=>
                         <div key={i}>
                             <p className="sabor">{sabor.sabor.nome}</p>
-                            <input type='number' onChange={(e)=>getSabores(e,index,i)} placeholder='QTDE'/>
+                            <input type='number' onChange={(e)=>getSabores(e,index,i)} placeholder='Quantidade'/>
                         </div>
                     
                     )}

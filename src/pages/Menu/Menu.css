@@ -218,7 +218,7 @@ body .inline_buttons{
 }
 
 .inline_sabor div input{
-    font-size: 15px;
+    font-size: 12px;
     height: 50px;
     width: 100px;
     box-shadow: #590000 0px 0px 0px 3px;
@@ -296,7 +296,7 @@ body .inline_buttons{
     }
 
     .total{
-        font-size: 50px;
+        font-size: 10px;
     }
 
     .confirm{
@@ -305,7 +305,7 @@ body .inline_buttons{
     }
 
     .inline_sabor div input{
-        font-size: 15px;
+        font-size: 11px;
         height: 40px;
 
         width: 80px;
@@ -313,7 +313,9 @@ body .inline_buttons{
 }
 
 .total{
+    padding: 0 30px;
     display: none;
+    grid-template-columns: 4fr 1fr;
     top:0;
     left:0;
     position: fixed;
@@ -323,12 +325,49 @@ body .inline_buttons{
     width: 100vw;
     height: 50px;
     align-items: center;
+    justify-items: right;
     color: #15e11a;
     font-weight: 700;
     background-color: #061401e3;
     box-shadow: #34b209 1px 1px 20px;
     justify-content: center;
     justify-self: center;
+}
+
+.total div{
+    display: grid;
+}
+
+.total .total_center{
+    justify-self: center;
+    grid-template-columns: 1fr 1fr;
+}
+
+.total_center p{
+    word-wrap: none;
+    font-size: 16px;
+}
+
+.total_center p:first-of-type{
+    justify-self: right;
+}
+
+.done{
+    color: #000000;
+    background-color: #53c729;
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 5px;
+    font-size: 10px;
+    text-align: right;
+    text-decoration: none;
+}
+
+.done:hover{
+    color:#53c729;
+    background-color: #000000;
+
+    transition: 0.1s ease-in-out;
 }
 
 .total p:first-child{
