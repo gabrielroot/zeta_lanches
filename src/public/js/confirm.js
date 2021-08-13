@@ -19,7 +19,7 @@ var isMobile = {
     }
 };
 
-const numero = '38991434956'
+const numero = '38998988064'
 const wpp_send = document.querySelector('.wpp_send')
 
 const nome_el = document.querySelector('input[name="nome"]')
@@ -45,7 +45,7 @@ function atualizaWppSend(){
     if(isMobile.any())
         url = 'https://api.whatsapp.com/send?phone=+55'+numero+'&text='
     else
-        url = 'https://wa.me/55'+numero+'?text='
+        url = 'https://web.whatsapp.com/send?phone=+55'+numero+'?text='
 
     let message = window.encodeURIComponent(`Olá dona Elizete!
 Meu nome é *${nome}*!
